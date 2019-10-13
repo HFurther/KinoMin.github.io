@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://kinomin.github.io">
   <title>mysql开启binlog | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误      原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数  此处开始，权当已经安装了 MySQL 5.6.2 及以上版本 步骤一： 赋权限说明： 非 root 用户，才需">
+  <meta name="description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误      原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数  此处开始，权当已经安装了 MySQL 5.6.2 及以上版本">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql开启binlog">
 <meta property="og:url" content="http://kinomin.github.io/2019/10/13/mysql开启binlog/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误      原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数  此处开始，权当已经安装了 MySQL 5.6.2 及以上版本 步骤一： 赋权限说明： 非 root 用户，才需">
+<meta property="og:description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误      原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数  此处开始，权当已经安装了 MySQL 5.6.2 及以上版本">
 <meta property="og:locale" content="ch">
 <meta property="og:image" content="http://kinomin.github.io/2019/10/13/mysql开启binlog/D:%5Ctypora_img%5C1570625610249.png">
 <meta property="og:image" content="http://kinomin.github.io/2019/10/13/mysql开启binlog/D:%5Ctypora_img%5C1570626077882.png">
-<meta property="og:updated_time" content="2019-10-13T10:29:34.048Z">
+<meta property="og:updated_time" content="2019-10-13T10:35:03.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql开启binlog">
-<meta name="twitter:description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误      原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数  此处开始，权当已经安装了 MySQL 5.6.2 及以上版本 步骤一： 赋权限说明： 非 root 用户，才需">
+<meta name="twitter:description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误      原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数  此处开始，权当已经安装了 MySQL 5.6.2 及以上版本">
 <meta name="twitter:image" content="http://kinomin.github.io/2019/10/13/mysql开启binlog/D:%5Ctypora_img%5C1570625610249.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -195,6 +195,8 @@
 <p>  原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数</p>
 </blockquote>
 <p>此处开始，权当已经安装了 MySQL 5.6.2 及以上版本</p>
+<a id="more"></a>
+
 <h1 id="步骤一：-赋权限"><a href="#步骤一：-赋权限" class="headerlink" title="步骤一： 赋权限"></a>步骤一： 赋权限</h1><p>说明： 非 root 用户，才需要执行此步骤，如果是root用户，跳过此步骤；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO canal@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'canal'</span>;</span><br></pre></td></tr></table></figure>
 
