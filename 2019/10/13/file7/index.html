@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误      原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数">
 <meta property="og:locale" content="ch">
-<meta property="og:image" content="http://kinomin.github.io/2019/10/13/file7/file7%5C1570625610249.png">
-<meta property="og:image" content="http://kinomin.github.io/2019/10/13/file7/file7%5C1570626077882.png">
-<meta property="og:updated_time" content="2019-10-13T16:07:42.605Z">
+<meta property="og:image" content="http://kinomin.github.io/2019/10/13/file7/1570625610249.png">
+<meta property="og:image" content="http://kinomin.github.io/2019/10/13/file7/1570626077882.png">
+<meta property="og:updated_time" content="2019-10-13T16:33:04.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql 开启binlog">
 <meta name="twitter:description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误      原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数">
-<meta name="twitter:image" content="http://kinomin.github.io/2019/10/13/file7/file7%5C1570625610249.png">
+<meta name="twitter:image" content="http://kinomin.github.io/2019/10/13/file7/1570625610249.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -191,7 +191,7 @@
         <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
 <p>  mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本</p>
 <p>  如果不升级就开启 binlog，会报一下错误</p>
-<p>  <img src="//kinomin.github.io/2019/10/13/file7/file7%5C1570625610249.png" alt="1570625610249"></p>
+<p>  <img src="//kinomin.github.io/2019/10/13/file7/1570625610249.png" alt="1570625610249"></p>
 <p>  原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数</p>
 </blockquote>
 <a id="more"></a>
@@ -208,7 +208,7 @@
 
 <h1 id="步骤四：检查binlog-是否生效"><a href="#步骤四：检查binlog-是否生效" class="headerlink" title="步骤四：检查binlog 是否生效"></a>步骤四：检查binlog 是否生效</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入 mysql</span></span><br><span class="line">mysql -u用户 -p密码</span><br><span class="line"></span><br><span class="line">mysql&gt; show variables like <span class="string">'log_%'</span>;</span><br><span class="line">+----------------------------------------+--------------------------------+</span><br><span class="line">| Variable_name                          | Value                          |</span><br><span class="line">+----------------------------------------+--------------------------------+</span><br><span class="line">| log_bin                                | ON <span class="comment"># 此处为 ON表示开启成功       |</span></span><br><span class="line">| log_bin_basename                       | /var/lib/mysql/mysql-bin       |</span><br><span class="line">| log_bin_index                          | /var/lib/mysql/mysql-bin.index |</span><br><span class="line">| log_bin_trust_function_creators        | OFF                            |</span><br><span class="line">| log_bin_use_v1_row_events              | OFF                            |</span><br><span class="line">| log_error                              | /var/lib/mysql/hadoop102.err   |</span><br><span class="line">| log_output                             | FILE                           |</span><br><span class="line">| log_queries_not_using_indexes          | OFF                            |</span><br><span class="line">| log_slave_updates                      | OFF                            |</span><br><span class="line">| log_slow_admin_statements              | OFF                            |</span><br><span class="line">| log_slow_slave_statements              | OFF                            |</span><br><span class="line">| log_throttle_queries_not_using_indexes | 0                              |</span><br><span class="line">| log_warnings                           | 1                              |</span><br><span class="line">+----------------------------------------+--------------------------------+</span><br><span class="line">13 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></table></figure>
 
-<p><img src="//kinomin.github.io/2019/10/13/file7/file7%5C1570626077882.png" alt="1570626077882"></p>
+<p><img src="//kinomin.github.io/2019/10/13/file7/1570626077882.png" alt="1570626077882"></p>
 
       
 
