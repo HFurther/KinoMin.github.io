@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://kinomin.github.io">
   <title>hexo头像动画 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="鼠标覆盖头像动态效果在路径themes\yilia\source文件夹下 增加css文件txbh.css用来设置头像变换的样式,可以在这里面找， 用的头像旋转360°，鼠标离开后又转回来的，代码如下： 1234567.left-col #header .profilepic img &amp;#123;	border-radius: 50;	transition: 2s all;&amp;#125;.left-c">
+  <meta name="description" content="鼠标覆盖头像动态效果在路径themes\yilia\source文件夹下 增加css文件txbh.css用来设置头像变换的样式,可以在这里面找， 用的头像旋转360°，鼠标离开后又转回来的，代码如下：">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo头像动画">
 <meta property="og:url" content="http://kinomin.github.io/2019/10/13/hexo头像动画/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="鼠标覆盖头像动态效果在路径themes\yilia\source文件夹下 增加css文件txbh.css用来设置头像变换的样式,可以在这里面找， 用的头像旋转360°，鼠标离开后又转回来的，代码如下： 1234567.left-col #header .profilepic img &amp;#123;	border-radius: 50;	transition: 2s all;&amp;#125;.left-c">
+<meta property="og:description" content="鼠标覆盖头像动态效果在路径themes\yilia\source文件夹下 增加css文件txbh.css用来设置头像变换的样式,可以在这里面找， 用的头像旋转360°，鼠标离开后又转回来的，代码如下：">
 <meta property="og:locale" content="ch">
-<meta property="og:updated_time" content="2019-10-13T10:44:21.245Z">
+<meta property="og:updated_time" content="2019-10-13T10:49:17.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo头像动画">
-<meta name="twitter:description" content="鼠标覆盖头像动态效果在路径themes\yilia\source文件夹下 增加css文件txbh.css用来设置头像变换的样式,可以在这里面找， 用的头像旋转360°，鼠标离开后又转回来的，代码如下： 1234567.left-col #header .profilepic img &amp;#123;	border-radius: 50;	transition: 2s all;&amp;#125;.left-c">
+<meta name="twitter:description" content="鼠标覆盖头像动态效果在路径themes\yilia\source文件夹下 增加css文件txbh.css用来设置头像变换的样式,可以在这里面找， 用的头像旋转360°，鼠标离开后又转回来的，代码如下：">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -188,6 +188,8 @@
         <h1 id="鼠标覆盖头像动态效果"><a href="#鼠标覆盖头像动态效果" class="headerlink" title="鼠标覆盖头像动态效果"></a>鼠标覆盖头像动态效果</h1><p>在路径themes\yilia\source文件夹下</p>
 <p>增加css文件txbh.css用来设置头像变换的样式,可以在这里面找，</p>
 <p>用的头像旋转360°，鼠标离开后又转回来的，代码如下：</p>
+<a id="more"></a>
+
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left-col</span> <span class="selector-id">#header</span> <span class="selector-class">.profilepic</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">50</span>;</span><br><span class="line">	<span class="attribute">transition</span>: <span class="number">2s</span> all;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.left-col</span> <span class="selector-id">#header</span> <span class="selector-class">.profilepic</span> <span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">   <span class="attribute">transform</span>: <span class="built_in">rotate</span>(360deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>然后在 <code>themes\yilia\layout_partial\head.ejs</code> 文件中添加进去创建的css文件：<br>找到 <code>&lt;%- partial(‘css’) %&gt;</code>，在它的下面添加代码，把下文的代码添加进去，注意！！是在它的下面添加，不然效果将不会生效</p>
@@ -507,11 +509,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">软件安装, hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">软件安装, hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
