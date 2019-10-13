@@ -22,6 +22,11 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+	  <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="/./txbh.css">
+  
+  
   <style type="text/css">
   
     #container.show {
@@ -157,6 +162,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql开启binlog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
+<p>  mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本</p>
+<p>  如果不升级就开启 binlog，会报一下错误</p>
+<p>  <img src="//kinomin.github.io/2019/10/13/mysql开启binlog/D:%5Ctypora_img%5C1570625610249.png" alt="1570625610249"></p>
+<p>  原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数</p>
+</blockquote>
+<p>此处开始，权当已经安装了 MySQL 5.6.2 及以上版本</p>
+<h1 id="步骤一：-赋权限"><a href="#步骤一：-赋权限" class="headerlink" title="步骤一： 赋权限"></a>步骤一： 赋权限</h1><p>说明： 非 root 用户，才需要执行此步骤，如果是root用户，跳过此步骤；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO canal@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'canal'</span>;</span><br></pre></td></tr></table></figure>
+
+<h1 id="步骤二：开启binlog"><a href="#步骤二：开启binlog" class="headerlink" title="步骤二：开启binlog"></a>步骤二：开启binlog</h1><p>打开 <code>my.cnf</code> 文件，如果找不到就搜一下: <code>find / -name my.cnf</code>，如果没有这个文件，就在 <code>/etc/</code> 下创建一个</p>
+<p>添加如下内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id= 1</span><br><span class="line">log-bin= mysql-bin</span><br><span class="line">binlog_format= row</span><br><span class="line">binlog-do-db= gmall # 仅对哪个数据库开启</span><br></pre></td></tr></table></figure>
+
+<h1 id="步骤三：-重启-mysql-使-binlog-生效"><a href="#步骤三：-重启-mysql-使-binlog-生效" class="headerlink" title="步骤三： 重启 mysql 使 binlog 生效"></a>步骤三： 重启 mysql 使 binlog 生效</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
+
+<h1 id="步骤四：检查binlog-是否生效"><a href="#步骤四：检查binlog-是否生效" class="headerlink" title="步骤四：检查binlog 是否生效"></a>步骤四：检查binlog 是否生效</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入 mysql</span></span><br><span class="line">mysql -u用户 -p密码</span><br><span class="line"></span><br><span class="line">mysql&gt; show variables like <span class="string">'log_%'</span>;</span><br><span class="line">+----------------------------------------+--------------------------------+</span><br><span class="line">| Variable_name                          | Value                          |</span><br><span class="line">+----------------------------------------+--------------------------------+</span><br><span class="line">| log_bin                                | ON <span class="comment"># 此处为 ON表示开启成功       |</span></span><br><span class="line">| log_bin_basename                       | /var/lib/mysql/mysql-bin       |</span><br><span class="line">| log_bin_index                          | /var/lib/mysql/mysql-bin.index |</span><br><span class="line">| log_bin_trust_function_creators        | OFF                            |</span><br><span class="line">| log_bin_use_v1_row_events              | OFF                            |</span><br><span class="line">| log_error                              | /var/lib/mysql/hadoop102.err   |</span><br><span class="line">| log_output                             | FILE                           |</span><br><span class="line">| log_queries_not_using_indexes          | OFF                            |</span><br><span class="line">| log_slave_updates                      | OFF                            |</span><br><span class="line">| log_slow_admin_statements              | OFF                            |</span><br><span class="line">| log_slow_slave_statements              | OFF                            |</span><br><span class="line">| log_throttle_queries_not_using_indexes | 0                              |</span><br><span class="line">| log_warnings                           | 1                              |</span><br><span class="line">+----------------------------------------+--------------------------------+</span><br><span class="line">13 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p><img src="//kinomin.github.io/2019/10/13/mysql开启binlog/D:%5Ctypora_img%5C1570626077882.png" alt="1570626077882"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/13/mysql开启binlog/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-InstallationAndUseOfNoejsUnderWindows" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -190,84 +261,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/13/InstallationAndUseOfNoejsUnderWindows/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/13/我的第一篇博客/">我的第一篇博客</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/13/我的第一篇博客/" class="archive-article-date">
-  	<time datetime="2019-10-12T19:14:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/13/我的第一篇博客/">展开全文 >></a>
         </p>
       
 

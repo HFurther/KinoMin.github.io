@@ -1,0 +1,7 @@
+.left-col #header .profilepic img {
+	border-radius: 50;
+	transition: 2s all;
+}
+.left-col #header .profilepic img:hover {
+   transform: rotate(360deg);
+}
