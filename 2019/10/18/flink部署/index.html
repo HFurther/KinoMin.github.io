@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://kinomin.github.io">
-  <title>Tag: hexo | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="typora-copy-images-to:flink部署Standalone 模式安装解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。  修改 flink/conf/flink-conf.yaml 文件: 1jobmanager.rpc.address: hadoop102  修改 /conf/slave 文件： 12hadoop1">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://kinomin.github.io/tags/hexo/index.html">
+<meta property="og:url" content="http://kinomin.github.io/2019/10/18/flink部署/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="typora-copy-images-to:flink部署Standalone 模式安装解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。  修改 flink/conf/flink-conf.yaml 文件: 1jobmanager.rpc.address: hadoop102  修改 /conf/slave 文件： 12hadoop1">
 <meta property="og:locale" content="ch">
+<meta property="og:updated_time" content="2019-10-18T01:32:42.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="typora-copy-images-to:flink部署Standalone 模式安装解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。  修改 flink/conf/flink-conf.yaml 文件: 1jobmanager.rpc.address: hadoop102  修改 /conf/slave 文件： 12hadoop1">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -160,212 +164,292 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-flink部署" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="typora-copy-images-to-flink部署"><a href="#typora-copy-images-to-flink部署" class="headerlink" title="typora-copy-images-to:flink部署"></a>typora-copy-images-to:flink部署</h2><h1 id="Standalone-模式"><a href="#Standalone-模式" class="headerlink" title="Standalone 模式"></a>Standalone 模式</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。</p>
+<ol>
+<li><p>修改 <code>flink/conf/flink-conf.yaml</code> 文件:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobmanager.rpc.address: hadoop102</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 /conf/slave 文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop102</span><br><span class="line">hadoop103</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分发给另外两台服务器：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xsync flink-1.7.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./start-cluster.sh</span><br></pre></td></tr></table></figure>
+
+<p>访问： <a href="http://hadoop102:8081" target="_blank" rel="noopener">http://hadoop102:8081</a> 可以对 flink 集群和任务进行监控管理</p>
+</li>
+</ol>
+<h2 id="提交任务"><a href="#提交任务" class="headerlink" title="提交任务"></a>提交任务</h2><ol>
+<li><p>准备数据文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">how are you</span><br><span class="line">flink thank you</span><br><span class="line">and you</span><br><span class="line">i am fine too thank you</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把含数据文件的文件夹，分发到 taskmanage 机器中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xsync flink</span><br></pre></td></tr></table></figure>
+
+<p>​       由于读取数据是从本地磁盘读取，实际任务会被分发到taskmanage的机器中，所以要把目标文件分发。</p>
+</li>
+<li><p>执行程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./flink run -c com.atguigu.flink.app.BatchWcApp  /ext/flinkTest-1.0-SNAPSHOT.jar  --input /applog/flink/input.txt --output /applog/flink/output.csv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>到目标文件夹中查看计算结果</p>
+<p>注意：计算结果根据会保存到taskmanage的机器下，不会在jobmanage下。</p>
+</li>
+<li><p>在 webui 控制台查看计算过程</p>
+</li>
+</ol>
+<h1 id="Yarn-模式"><a href="#Yarn-模式" class="headerlink" title="Yarn 模式"></a>Yarn 模式</h1><p>​        以Yarn模式部署Flink任务时，要求Flink是有Hadoop支持的版本，Hadoop环境需要保证版本在2.2以上，并且集群中安装有HDFS服务。</p>
+<ol>
+<li><p>启动hadoop集群（略）</p>
+</li>
+<li><p>启动yarn-session</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./yarn-session.sh -n 2 -s 2 -jm 1024 -tm 1024 -nm <span class="built_in">test</span> -d</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<p>-n(–container)：TaskManager的数量。</p>
+<p>-s(–slots)：     每个TaskManager的slot数量，默认一个slot一个core，默认每个taskmanager的slot的个数为1，有时可以多一些taskmanager，做冗余。</p>
+<p>-jm：JobManager的内存（单位MB)。</p>
+<p>-tm：每个taskmanager的内存（单位MB)。</p>
+<p>-nm：yarn 的appName(现在yarn的ui上的名字)。 </p>
+<p>-d：后台执行。</p>
+</li>
+<li><p>执行任务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./flink run  -m yarn-cluster -c com.atguigu.flink.app.BatchWcApp  /ext/flink0503-1.0-SNAPSHOT.jar  --input /applog/flink/input.txt --output /applog/flink/output5.csv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>去 yarn 控制台查看任务状态</p>
+<p>地址：hadoop102:8088</p>
+</li>
+</ol>
+<h1 id="Kubernetes-部署"><a href="#Kubernetes-部署" class="headerlink" title="Kubernetes 部署"></a>Kubernetes 部署</h1><p>​        容器化部署时目前业界很流行的一项技术，基于Docker镜像运行能够让用户更加方便地对应用进行管理和运维。容器管理工具中最为流行的就是Kubernetes（k8s），而Flink也在最近的版本中支持了k8s部署模式。</p>
+<ol>
+<li><p>搭建Kubernetes集群（略）</p>
+</li>
+<li><p>配置各组件的yaml文件</p>
+<p>​        在k8s上构建Flink Session Cluster，需要将Flink集群的组件对应的docker镜像分别在k8s上启动，包括JobManager、TaskManager、JobManagerService三个镜像服务。每个镜像服务都可以从中央镜像仓库中获取。</p>
+</li>
+<li><p>启动Flink Session Cluster</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 启动jobmanager-service 服务</span><br><span class="line">kubectl create -f jobmanager-service.yaml</span><br><span class="line">// 启动jobmanager-deployment服务</span><br><span class="line">kubectl create -f jobmanager-deployment.yaml</span><br><span class="line">// 启动taskmanager-deployment服务</span><br><span class="line">kubectl create -f taskmanager-deployment.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问 Flink UI 页面</p>
+<p>集群启动后，就可以通过JobManagerServicers中配置的WebUI端口，用浏览器输入以下url来访问Flink UI页面了：</p>
+<p>http://<em>{JobManagerHost:Port}</em>/api/v1/namespaces/default/services/flink-jobmanager:ui/proxy</p>
+</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/aliPlay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/WeChatPlay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/window 安装使用 Hexo, 并搭建个人博客/" class="archive-article-date">
-  	<time datetime="2019-10-16T01:46:51.436Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/window 安装使用 Hexo, 并搭建个人博客/">window 安装使用 Hexo, 并搭建个人博客</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://kinomin.github.io/2019/10/18/flink部署/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/hexo异常/" class="archive-article-date">
-  	<time datetime="2019-10-16T01:46:51.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/10/18/flink简介/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/16/使用canal实时监控mysql并读取到 Kafka/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用canal实时监控mysql并读取到 Kafka</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/hexo异常/">hexo异常</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#typora-copy-images-to-flink部署"><span class="toc-number">1.</span> <span class="toc-text">typora-copy-images-to:flink部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Standalone-模式"><span class="toc-number"></span> <span class="toc-text">Standalone 模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交任务"><span class="toc-number">2.</span> <span class="toc-text">提交任务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Yarn-模式"><span class="toc-number"></span> <span class="toc-text">Yarn 模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kubernetes-部署"><span class="toc-number"></span> <span class="toc-text">Kubernetes 部署</span></a>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/hexo头像动画/" class="archive-article-date">
-  	<time datetime="2019-10-16T01:46:51.431Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        </div>
-    	 
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="flink部署" data-title="" data-url="http://kinomin.github.io/2019/10/18/flink部署/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/hexo头像动画/">hexo头像动画</a>
-    </h1>
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://kinomin.github.io/2019/10/18/flink部署/", 
+    sourceId: "flink部署",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/hexo头像不加载问题/" class="archive-article-date">
-  	<time datetime="2019-10-16T01:46:51.430Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/hexo头像不加载问题/">hexo头像不加载问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/16/hexo加载本地图片无法显示/" class="archive-article-date">
-  	<time datetime="2019-10-16T01:46:51.429Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/16/hexo加载本地图片无法显示/">hexo加载本地图片无法显示</a>
-    </h1>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -388,9 +472,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
