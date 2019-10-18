@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://kinomin.github.io">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="typora-copy-images-to:flink部署Standalone 模式安装解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。  修改 flink/conf/flink-conf.yaml 文件: 1jobmanager.rpc.address: hadoop102  修改 /conf/slave 文件： 12hadoop1">
+  <meta name="description" content="Standalone 模式安装解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://kinomin.github.io/2019/10/18/flink部署/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="typora-copy-images-to:flink部署Standalone 模式安装解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。  修改 flink/conf/flink-conf.yaml 文件: 1jobmanager.rpc.address: hadoop102  修改 /conf/slave 文件： 12hadoop1">
+<meta property="og:description" content="Standalone 模式安装解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。">
 <meta property="og:locale" content="ch">
-<meta property="og:updated_time" content="2019-10-18T01:32:42.076Z">
+<meta property="og:updated_time" content="2019-10-18T01:42:25.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="typora-copy-images-to:flink部署Standalone 模式安装解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。  修改 flink/conf/flink-conf.yaml 文件: 1jobmanager.rpc.address: hadoop102  修改 /conf/slave 文件： 12hadoop1">
+<meta name="twitter:description" content="Standalone 模式安装解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -169,8 +169,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="typora-copy-images-to-flink部署"><a href="#typora-copy-images-to-flink部署" class="headerlink" title="typora-copy-images-to:flink部署"></a>typora-copy-images-to:flink部署</h2><h1 id="Standalone-模式"><a href="#Standalone-模式" class="headerlink" title="Standalone 模式"></a>Standalone 模式</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。</p>
+        <h1 id="Standalone-模式"><a href="#Standalone-模式" class="headerlink" title="Standalone 模式"></a>Standalone 模式</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>解压缩  flink-1.7.2-bin-hadoop27-scala_2.11.tgz，进入conf目录中。</p>
+<a id="more"></a>
+
 <ol>
 <li><p>修改 <code>flink/conf/flink-conf.yaml</code> 文件:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobmanager.rpc.address: hadoop102</span><br></pre></td></tr></table></figure>
@@ -383,7 +384,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#typora-copy-images-to-flink部署"><span class="toc-number">1.</span> <span class="toc-text">typora-copy-images-to:flink部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Standalone-模式"><span class="toc-number"></span> <span class="toc-text">Standalone 模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交任务"><span class="toc-number">2.</span> <span class="toc-text">提交任务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Yarn-模式"><span class="toc-number"></span> <span class="toc-text">Yarn 模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kubernetes-部署"><span class="toc-number"></span> <span class="toc-text">Kubernetes 部署</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Standalone-模式"><span class="toc-number">1.</span> <span class="toc-text">Standalone 模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交任务"><span class="toc-number">1.2.</span> <span class="toc-text">提交任务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Yarn-模式"><span class="toc-number">2.</span> <span class="toc-text">Yarn 模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kubernetes-部署"><span class="toc-number">3.</span> <span class="toc-text">Kubernetes 部署</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -550,11 +551,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+                <a href="javascript:void(0)" class="js-tag color1">软件安装, hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">软件安装, hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
