@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://kinomin.github.io">
-  <title>mysql 开启binlog | Hexo</title>
+  <title>windows下安装Ruby | KinoMin/KinoMin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误   ![1570625610249](mysql 开启binlog/1570625610249.png)   原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数">
-<meta name="keywords" content="mysql">
+  <meta name="description" content="一、Install Ruby1.1 下载Ruby 下载地址">
+<meta name="keywords" content="软件安装, hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql 开启binlog">
-<meta property="og:url" content="http://kinomin.github.io/2019/10/16/mysql 开启binlog/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误   ![1570625610249](mysql 开启binlog/1570625610249.png)   原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数">
+<meta property="og:title" content="windows下安装Ruby">
+<meta property="og:url" content="http://kinomin.github.io/2019/10/16/windows下安装Ruby/index.html">
+<meta property="og:site_name" content="KinoMin&#x2F;KinoMin">
+<meta property="og:description" content="一、Install Ruby1.1 下载Ruby 下载地址">
 <meta property="og:locale" content="ch">
-<meta property="og:updated_time" content="2019-10-16T01:03:40.152Z">
+<meta property="og:image" content="http://kinomin.github.io/2019/10/16/windows下安装Ruby/1570950741760.png">
+<meta property="og:updated_time" content="2019-10-19T12:03:04.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql 开启binlog">
-<meta name="twitter:description" content="说明   mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本   如果不升级就开启 binlog，会报一下错误   ![1570625610249](mysql 开启binlog/1570625610249.png)   原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数">
+<meta name="twitter:title" content="windows下安装Ruby">
+<meta name="twitter:description" content="一、Install Ruby1.1 下载Ruby 下载地址">
+<meta name="twitter:image" content="http://kinomin.github.io/2019/10/16/windows下安装Ruby/1570950741760.png">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="KinoMin/KinoMin" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -165,47 +167,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mysql 开启binlog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-windows下安装Ruby" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      mysql 开启binlog
+      windows下安装Ruby
     </h1>
   
 
         
-        <a href="/2019/10/16/mysql 开启binlog/" class="archive-article-date">
-  	<time datetime="2019-10-16T01:46:51.433Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
+        <a href="/2019/10/16/windows下安装Ruby/" class="archive-article-date">
+  	<time datetime="2019-10-16T01:46:51.437Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
-<p>  mysql 开启 binlog 的前提：mysql 的版本需要是 5.62及以上，如果不是的话，请升级版本</p>
-<p>  如果不升级就开启 binlog，会报一下错误</p>
-<p>  ![1570625610249](mysql 开启binlog/1570625610249.png)</p>
-<p>  原因：binlog_checksum 是 MySQL 5.6.2 才引入的，5.6.2 一下根本没有这个参数</p>
-</blockquote>
+        <h1 id="一、Install-Ruby"><a href="#一、Install-Ruby" class="headerlink" title="一、Install Ruby"></a>一、Install Ruby</h1><h2 id="1-1-下载"><a href="#1-1-下载" class="headerlink" title="1.1 下载"></a>1.1 下载</h2><p><a href="https://rubyinstaller.org/downloads/" target="_blank" rel="noopener">Ruby 下载地址</a></p>
 <a id="more"></a>
 
-<p>此处开始，权当已经安装了 MySQL 5.6.2 及以上版本</p>
-<h1 id="步骤一：-赋权限"><a href="#步骤一：-赋权限" class="headerlink" title="步骤一： 赋权限"></a>步骤一： 赋权限</h1><p>说明： 非 root 用户，才需要执行此步骤，如果是root用户，跳过此步骤；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO canal@<span class="string">'%'</span> IDENTIFIED BY <span class="string">'canal'</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="//kinomin.github.io/2019/10/16/windows下安装Ruby/1570950741760.png" alt="1570950741760"></p>
+<p>​    一直下一步即可(默认会连 Devkit 一起安装，因为前面选择下载的是包含 Devkit的安装包)</p>
+<h2 id="1-2-配置环境变量"><a href="#1-2-配置环境变量" class="headerlink" title="1.2 配置环境变量"></a>1.2 配置环境变量</h2><p>变量名: <code>RUBY_HOME</code></p>
+<p>变量值: <code>${你的Ruby安装路径}</code></p>
+<p>在 PATH 下新增: <code>%RUBY_HOME%\bin</code></p>
+<h2 id="1-3-测试是否安装成功"><a href="#1-3-测试是否安装成功" class="headerlink" title="1.3 测试是否安装成功"></a>1.3 测试是否安装成功</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby -v</span><br><span class="line">ruby 2.6.5p114 (2019-10-01 revision 67812) [i386-mingw32]</span><br></pre></td></tr></table></figure>
 
-<h1 id="步骤二：开启binlog"><a href="#步骤二：开启binlog" class="headerlink" title="步骤二：开启binlog"></a>步骤二：开启binlog</h1><p>打开 <code>my.cnf</code> 文件，如果找不到就搜一下: <code>find / -name my.cnf</code>，如果没有这个文件，就在 <code>/etc/</code> 下创建一个</p>
-<p>添加如下内容</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id= 1</span><br><span class="line">log-bin= mysql-bin</span><br><span class="line">binlog_format= row</span><br><span class="line">binlog-do-db= gmall # 仅对哪个数据库开启</span><br></pre></td></tr></table></figure>
+<h1 id="三、Install-Python"><a href="#三、Install-Python" class="headerlink" title="三、Install Python"></a>三、Install Python</h1><h2 id="3-1-下载地址"><a href="#3-1-下载地址" class="headerlink" title="3.1 下载地址"></a>3.1 下载地址</h2><p><a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python 下载地址</a></p>
+<p>一直下一步即可</p>
+<h2 id="3-2-配置环境变量"><a href="#3-2-配置环境变量" class="headerlink" title="3.2 配置环境变量"></a>3.2 配置环境变量</h2><p>变量名: PYTHON_HOME</p>
+<p>变量值: ${你的Python安装路径}\bin</p>
+<h2 id="3-3-测试是否安装成功"><a href="#3-3-测试是否安装成功" class="headerlink" title="3.3 测试是否安装成功"></a>3.3 测试是否安装成功</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Dream_RM&gt;python</span><br><span class="line">Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> <span class="keyword">for</span>  more  information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
 
-<h1 id="步骤三：-重启-mysql-使-binlog-生效"><a href="#步骤三：-重启-mysql-使-binlog-生效" class="headerlink" title="步骤三： 重启 mysql 使 binlog 生效"></a>步骤三： 重启 mysql 使 binlog 生效</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
+<h1 id="四、Install-pip"><a href="#四、Install-pip" class="headerlink" title="四、Install pip"></a>四、Install pip</h1><p>pip是一个Python包的安装和管理工具。你会需要它的安装pygments,pygments.rb突出你的代码,使用Python包。</p>
+<h2 id="4-1-下载地址"><a href="#4-1-下载地址" class="headerlink" title="4.1 下载地址"></a>4.1 下载地址</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://pip.pypa.io/en/latest/installing/</span><br></pre></td></tr></table></figure>
 
-<h1 id="步骤四：检查binlog-是否生效"><a href="#步骤四：检查binlog-是否生效" class="headerlink" title="步骤四：检查binlog 是否生效"></a>步骤四：检查binlog 是否生效</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入 mysql</span></span><br><span class="line">mysql -u用户 -p密码</span><br><span class="line"></span><br><span class="line">mysql&gt; show variables like <span class="string">'log_%'</span>;</span><br><span class="line">+----------------------------------------+--------------------------------+</span><br><span class="line">| Variable_name                          | Value                          |</span><br><span class="line">+----------------------------------------+--------------------------------+</span><br><span class="line">| log_bin                                | ON <span class="comment"># 此处为 ON表示开启成功       |</span></span><br><span class="line">| log_bin_basename                       | /var/lib/mysql/mysql-bin       |</span><br><span class="line">| log_bin_index                          | /var/lib/mysql/mysql-bin.index |</span><br><span class="line">| log_bin_trust_function_creators        | OFF                            |</span><br><span class="line">| log_bin_use_v1_row_events              | OFF                            |</span><br><span class="line">| log_error                              | /var/lib/mysql/hadoop102.err   |</span><br><span class="line">| log_output                             | FILE                           |</span><br><span class="line">| log_queries_not_using_indexes          | OFF                            |</span><br><span class="line">| log_slave_updates                      | OFF                            |</span><br><span class="line">| log_slow_admin_statements              | OFF                            |</span><br><span class="line">| log_slow_slave_statements              | OFF                            |</span><br><span class="line">| log_throttle_queries_not_using_indexes | 0                              |</span><br><span class="line">| log_warnings                           | 1                              |</span><br><span class="line">+----------------------------------------+--------------------------------+</span><br><span class="line">13 rows <span class="keyword">in</span> <span class="built_in">set</span> (0.00 sec)</span><br></pre></td></tr></table></figure>
-
-<p>![1570626077882](mysql 开启binlog/1570626077882.png)</p>
 
       
 
@@ -250,7 +250,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">软件安装, hexo</a>
         		</li>
       		
 		</ul>
@@ -306,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://kinomin.github.io/2019/10/16/mysql 开启binlog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://kinomin.github.io/2019/10/16/windows下安装Ruby/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -320,18 +320,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/16/window 安装使用 Hexo, 并搭建个人博客/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/16/windows安装nodejs/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          window 安装使用 Hexo, 并搭建个人博客
+          windows安装nodejs
         
       </div>
     </a>
   
   
-    <a href="/2019/10/16/hexo异常/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo异常</div>
+    <a href="/2019/10/16/window安装使用 Hexo, 并搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">window安装使用Hexo, 并搭建个人博客</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -358,7 +358,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#说明"><span class="toc-number">1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤一：-赋权限"><span class="toc-number">2.</span> <span class="toc-text">步骤一： 赋权限</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤二：开启binlog"><span class="toc-number">3.</span> <span class="toc-text">步骤二：开启binlog</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤三：-重启-mysql-使-binlog-生效"><span class="toc-number">4.</span> <span class="toc-text">步骤三： 重启 mysql 使 binlog 生效</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤四：检查binlog-是否生效"><span class="toc-number">5.</span> <span class="toc-text">步骤四：检查binlog 是否生效</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Install-Ruby"><span class="toc-number">1.</span> <span class="toc-text">一、Install Ruby</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-下载"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-配置环境变量"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 配置环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-测试是否安装成功"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 测试是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Install-Python"><span class="toc-number">2.</span> <span class="toc-text">三、Install Python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-下载地址"><span class="toc-number">2.1.</span> <span class="toc-text">3.1 下载地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-配置环境变量"><span class="toc-number">2.2.</span> <span class="toc-text">3.2 配置环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-测试是否安装成功"><span class="toc-number">2.3.</span> <span class="toc-text">3.3 测试是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Install-pip"><span class="toc-number">3.</span> <span class="toc-text">四、Install pip</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-下载地址"><span class="toc-number">3.1.</span> <span class="toc-text">4.1 下载地址</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -372,7 +372,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="mysql 开启binlog" data-title="mysql 开启binlog" data-url="http://kinomin.github.io/2019/10/16/mysql 开启binlog/"></div>
+	<div class="ds-thread" data-thread-key="windows下安装Ruby" data-title="windows下安装Ruby" data-url="http://kinomin.github.io/2019/10/16/windows下安装Ruby/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -395,8 +395,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://kinomin.github.io/2019/10/16/mysql 开启binlog/", 
-    sourceId: "mysql 开启binlog",
+    url: "http://kinomin.github.io/2019/10/16/windows下安装Ruby/", 
+    sourceId: "windows下安装Ruby",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -525,15 +525,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">软件安装, hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">

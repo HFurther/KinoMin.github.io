@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://kinomin.github.io">
-  <title>windows 下安装Ruby | Hexo</title>
+  <title>window安装使用Hexo, 并搭建个人博客 | KinoMin/KinoMin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Install Ruby1.1 下载Ruby 下载地址">
-<meta name="keywords" content="软件安装, hexo">
+  <meta name="description" content="说明windows 下要安装 git，并且配置 git 的环境变量 一、安装 nodejs因为 Hexo 是需要 node 和 npm 支持的 看前片博客即可">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows 下安装Ruby">
-<meta property="og:url" content="http://kinomin.github.io/2019/10/16/windows 下安装Ruby/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、Install Ruby1.1 下载Ruby 下载地址">
+<meta property="og:title" content="window安装使用Hexo, 并搭建个人博客">
+<meta property="og:url" content="http://kinomin.github.io/2019/10/16/window安装使用 Hexo, 并搭建个人博客/index.html">
+<meta property="og:site_name" content="KinoMin&#x2F;KinoMin">
+<meta property="og:description" content="说明windows 下要安装 git，并且配置 git 的环境变量 一、安装 nodejs因为 Hexo 是需要 node 和 npm 支持的 看前片博客即可">
 <meta property="og:locale" content="ch">
-<meta property="og:updated_time" content="2019-10-16T01:04:21.270Z">
+<meta property="og:updated_time" content="2019-10-19T12:07:45.212Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="windows 下安装Ruby">
-<meta name="twitter:description" content="一、Install Ruby1.1 下载Ruby 下载地址">
+<meta name="twitter:title" content="window安装使用Hexo, 并搭建个人博客">
+<meta name="twitter:description" content="说明windows 下要安装 git，并且配置 git 的环境变量 一、安装 nodejs因为 Hexo 是需要 node 和 npm 支持的 看前片博客即可">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="KinoMin/KinoMin" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -165,53 +165,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-windows 下安装Ruby" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-window安装使用 Hexo, 并搭建个人博客" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      windows 下安装Ruby
+      window安装使用Hexo, 并搭建个人博客
     </h1>
   
 
         
-        <a href="/2019/10/16/windows 下安装Ruby/" class="archive-article-date">
-  	<time datetime="2019-10-16T01:46:51.437Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
+        <a href="/2019/10/16/window安装使用 Hexo, 并搭建个人博客/" class="archive-article-date">
+  	<time datetime="2019-10-16T01:46:51.436Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、Install-Ruby"><a href="#一、Install-Ruby" class="headerlink" title="一、Install Ruby"></a>一、Install Ruby</h1><h2 id="1-1-下载"><a href="#1-1-下载" class="headerlink" title="1.1 下载"></a>1.1 下载</h2><p><a href="https://rubyinstaller.org/downloads/" target="_blank" rel="noopener">Ruby 下载地址</a></p>
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>windows 下要安装 git，并且配置 git 的环境变量</p>
+<h1 id="一、安装-nodejs"><a href="#一、安装-nodejs" class="headerlink" title="一、安装 nodejs"></a>一、安装 nodejs</h1><p>因为 Hexo 是需要 node 和 npm 支持的</p>
+<p>看前片博客即可</p>
 <a id="more"></a>
 
-<p>![1570950741760](windows 下安装Ruby/1570950741760.png)</p>
-<p>​    一直下一步即可(默认会连 Devkit 一起安装，因为前面选择下载的是包含 Devkit的安装包)</p>
-<h2 id="1-2-配置环境变量"><a href="#1-2-配置环境变量" class="headerlink" title="1.2 配置环境变量"></a>1.2 配置环境变量</h2><p>变量名: <code>RUBY_HOME</code></p>
-<p>变量值: <code>${你的Ruby安装路径}</code></p>
-<p>在 PATH 下新增: <code>%RUBY_HOME%\bin</code></p>
-<h2 id="1-3-测试是否安装成功"><a href="#1-3-测试是否安装成功" class="headerlink" title="1.3 测试是否安装成功"></a>1.3 测试是否安装成功</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ruby -v</span><br><span class="line">ruby 2.6.5p114 (2019-10-01 revision 67812) [i386-mingw32]</span><br></pre></td></tr></table></figure>
+<h1 id="二、打开终端"><a href="#二、打开终端" class="headerlink" title="二、打开终端"></a>二、打开终端</h1><p>此时不建议使用windows 的 cmd 创建，而是选择 git 的 Git Bash Here，操作步骤如下</p>
+<p>​    - 选择一个文件夹，鼠标右键，选择 Git Bash Here</p>
+<h1 id="三、查看-node-和-npm-的版本"><a href="#三、查看-node-和-npm-的版本" class="headerlink" title="三、查看 node 和 npm 的版本"></a>三、查看 node 和 npm 的版本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Dream_RM@DESKTOP-9OU3QL0 MINGW64 ~</span><br><span class="line">$ node -v</span><br><span class="line">v10.16.3</span><br><span class="line"></span><br><span class="line">Dream_RM@DESKTOP-9OU3QL0 MINGW64 ~</span><br><span class="line">$ npm -v</span><br><span class="line">6.9.0</span><br></pre></td></tr></table></figure>
 
-<h2 id="二、Install-Jekyll"><a href="#二、Install-Jekyll" class="headerlink" title="二、Install Jekyll"></a>二、Install Jekyll</h2><h2 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install jekyll</span><br></pre></td></tr></table></figure>
+<h1 id="四、安装-Hexo-博客框架"><a href="#四、安装-Hexo-博客框架" class="headerlink" title="四、安装 Hexo 博客框架"></a>四、安装 Hexo 博客框架</h1><h2 id="4-1-安装-cnpm"><a href="#4-1-安装-cnpm" class="headerlink" title="4.1 安装 cnpm"></a>4.1 安装 cnpm</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
-<h1 id="三、Install-Python"><a href="#三、Install-Python" class="headerlink" title="三、Install Python"></a>三、Install Python</h1><h2 id="3-1-下载地址"><a href="#3-1-下载地址" class="headerlink" title="3.1 下载地址"></a>3.1 下载地址</h2><p><a href="https://www.python.org/downloads/" target="_blank" rel="noopener">Python 下载地址</a></p>
-<p>一直下一步即可</p>
-<h2 id="3-2-配置环境变量"><a href="#3-2-配置环境变量" class="headerlink" title="3.2 配置环境变量"></a>3.2 配置环境变量</h2><p>变量名: PYTHON_HOME</p>
-<p>变量值: ${你的Python安装路径}\bin</p>
-<h2 id="3-3-测试是否安装成功"><a href="#3-3-测试是否安装成功" class="headerlink" title="3.3 测试是否安装成功"></a>3.3 测试是否安装成功</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Dream_RM&gt;python</span><br><span class="line">Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> <span class="keyword">for</span>  more  information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>测试是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Dream_RM@DESKTOP-9OU3QL0 MINGW64 ~</span><br><span class="line">$ cnpm -v</span><br><span class="line"></span><br><span class="line">cnpm@6.1.0 (D:\SoftWare\nodejs\package\node-v10.16.3-win-x64\node-global\node_modules\cnpm\lib\parse_argv.js)</span><br><span class="line">npm@6.12.0 (D:\SoftWare\nodejs\package\node-v10.16.3-win-x64\node-global\node_modules\cnpm\node_modules\npm\lib\npm.js)</span><br><span class="line">node@10.16.3 (D:\SoftWare\nodejs\path\nodejs\node.exe)</span><br><span class="line">npminstall@3.23.0 (D:\SoftWare\nodejs\package\node-v10.16.3-win-x64\node-global\node_modules\cnpm\node_modules\npminstall\lib\index.js)</span><br><span class="line">prefix=D:\SoftWare\nodejs\package\node-v10.16.3-win-x64\node-global</span><br><span class="line">win32 x64 10.0.18362</span><br><span class="line">registry=https://r.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
-<h1 id="四、Install-pip"><a href="#四、Install-pip" class="headerlink" title="四、Install pip"></a>四、Install pip</h1><p>pip是一个Python包的安装和管理工具。你会需要它的安装pygments,pygments.rb突出你的代码,使用Python包。</p>
-<h2 id="4-1-下载地址"><a href="#4-1-下载地址" class="headerlink" title="4.1 下载地址"></a>4.1 下载地址</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://pip.pypa.io/en/latest/installing/</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-使用-cnpm-安装-Hexo"><a href="#4-2-使用-cnpm-安装-Hexo" class="headerlink" title="4.2 使用 cnpm 安装 Hexo"></a>4.2 使用 cnpm 安装 Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
-<h1 id="五、-Run-Jekyll"><a href="#五、-Run-Jekyll" class="headerlink" title="五、 Run Jekyll"></a>五、 Run Jekyll</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建 myblog 目录</span></span><br><span class="line">jekyll new myblog</span><br><span class="line"><span class="comment"># 进入到创建的目录下</span></span><br><span class="line"><span class="built_in">cd</span> myblog</span><br><span class="line"><span class="comment"># 进行 Jekyll</span></span><br><span class="line">hekyll serve</span><br></pre></td></tr></table></figure>
+<p>验证是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br><span class="line"></span><br><span class="line">hexo: 3.9.0</span><br><span class="line">hexo-cli: 3.0.0</span><br><span class="line">os: Windows_NT 10.0.18362 win32 x64</span><br><span class="line">http_parser: 2.8.0</span><br><span class="line">node: 10.16.3</span><br><span class="line">v8: 6.8.275.32-node.54</span><br><span class="line">uv: 1.28.0</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">brotli: 1.0.7</span><br><span class="line">ares: 1.15.0</span><br><span class="line">modules: 64</span><br><span class="line">nghttp2: 1.39.2</span><br><span class="line">napi: 4</span><br><span class="line">openssl: 1.1.1c</span><br><span class="line">icu: 64.2</span><br><span class="line">unicode: 12.1</span><br><span class="line">cldr: 35.1</span><br><span class="line">tz: 2019a</span><br></pre></td></tr></table></figure>
 
-<p>在浏览器中输入: <code>localhost:4000</code></p>
-<p>![1570951296007](windows 下安装Ruby/1570951296007.png)</p>
-<p>至此，Jekyll 就安装成功了</p>
-<h1 id="六、模板"><a href="#六、模板" class="headerlink" title="六、模板"></a>六、模板</h1><p>地址： jekyllthemes.org</p>
+<h2 id="4-3-创建一个文件夹"><a href="#4-3-创建一个文件夹" class="headerlink" title="4.3 创建一个文件夹"></a>4.3 创建一个文件夹</h2><p>随便找一个目录都行，后面的博客都在该目录中，</p>
+<p>如果后面安装出现问题，干掉该文件重新来</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir blog</span><br></pre></td></tr></table></figure>
+
+<p>进入到创建的文件夹中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span>  blog</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-使用-Hexo-生成博客"><a href="#4-4-使用-Hexo-生成博客" class="headerlink" title="4.4 使用 Hexo 生成博客"></a>4.4 使用 Hexo 生成博客</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo init</span><br></pre></td></tr></table></figure>
+
+<p>完成后的 blog 下的目录，里面都是一些基础配置</p>
+<p>![1570903359570](window安装使用Hexo, 并搭建个人博客/1570903359570.png)</p>
+<h2 id="4-5-启动-Hexo"><a href="#4-5-启动-Hexo" class="headerlink" title="4.5 启动 Hexo"></a>4.5 启动 Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<p>启动后，在浏览器中输入: <code>localhost:4000</code></p>
+<p>会看到以下内容：</p>
+<p>![1570903465071](window安装使用Hexo, 并搭建个人博客/1570903465071.png)</p>
+<h2 id="4-6-创建文章"><a href="#4-6-创建文章" class="headerlink" title="4.6 创建文章"></a>4.6 创建文章</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"我的第一篇博客文章"</span></span><br></pre></td></tr></table></figure>
+
+<p>回车就会生成</p>
+<p>![1570903538979](window安装使用Hexo, 并搭建个人博客/1570903538979.png)</p>
+<p>文章最终会在：<code>${步骤4.3 创建的文件夹路径}\source\_posts</code> 目录下</p>
+<p>![1570903612798](window安装使用Hexo, 并搭建个人博客/1570903612798.png)</p>
+<h2 id="4-7-修改刚刚创建的文章"><a href="#4-7-修改刚刚创建的文章" class="headerlink" title="4.7 修改刚刚创建的文章"></a>4.7 修改刚刚创建的文章</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 我的第一篇博客文章</span><br><span class="line">date: 2019-10-13 01:03:15</span><br><span class="line">tags:</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment">## 第一章</span></span><br><span class="line"></span><br><span class="line">我最牛皮</span><br><span class="line"></span><br><span class="line"><span class="comment">## 第二章</span></span><br><span class="line"></span><br><span class="line">我最牛皮</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line"><span class="comment">## 参考文献</span></span><br><span class="line"></span><br><span class="line">www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-8-清理-Hexo"><a href="#4-8-清理-Hexo" class="headerlink" title="4.8 清理 Hexo"></a>4.8 清理 Hexo</h2><p>回到 blog 目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-9-重新生成"><a href="#4-9-重新生成" class="headerlink" title="4.9 重新生成"></a>4.9 重新生成</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-10-重新启动"><a href="#4-10-重新启动" class="headerlink" title="4.10 重新启动"></a>4.10 重新启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>![1570903793718](window安装使用Hexo, 并搭建个人博客/1570903793718.png)</p>
+<h2 id="五、将博客部署到-GitHub-上"><a href="#五、将博客部署到-GitHub-上" class="headerlink" title="五、将博客部署到 GitHub 上"></a>五、将博客部署到 GitHub 上</h2><h2 id="5-1-创建仓库"><a href="#5-1-创建仓库" class="headerlink" title="5.1 创建仓库"></a>5.1 创建仓库</h2><p>登录自己的GitHub，创建仓库，名字一定要正确: </p>
+<p>${你的账户名}.github.io</p>
+<p>例如我的: KinoMin.github.io</p>
+<p>取好名字，<code>Create repository</code> 即可</p>
+<h2 id="5-2-安装-git-部署插件"><a href="#5-2-安装-git-部署插件" class="headerlink" title="5.2 安装 git 部署插件"></a>5.2 安装 git 部署插件</h2><p>回到 blog 下，执行以下代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<p>安装提示会有一个 <code>WARNING</code>，当然啦，程序员从来不听警告，不用管它</p>
+<h2 id="5-3-设置-config-yml"><a href="#5-3-设置-config-yml" class="headerlink" title="5.3 设置  _config.yml"></a>5.3 设置  _config.yml</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ vim _config.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 去到最底部</span></span><br><span class="line">deploy:</span><br><span class="line">	<span class="built_in">type</span>: git</span><br><span class="line">	repo: <span class="variable">$&#123;步骤 5.1 创建的仓库路径, 例如我的: https://github.com/KinoMin/KinoMin.github.io.git&#125;</span></span><br><span class="line">	branch: master <span class="comment"># 默认就是 master</span></span><br><span class="line">	</span><br><span class="line"><span class="comment"># wq! 退出</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-4-部署到github"><a href="#5-4-部署到github" class="headerlink" title="5.4 部署到github"></a>5.4 部署到github</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<p>输入自己的 github 账号密码即可</p>
+<p>在浏览器中输入: https://${你的GitHub 名}.github.io</p>
+<p>例如我的: KinoMin.github.io</p>
+<p>会出现以下画面</p>
+<p>![1570904415513](window安装使用Hexo, 并搭建个人博客/1570904415513.png)</p>
+<h1 id="五、修改主题"><a href="#五、修改主题" class="headerlink" title="五、修改主题"></a>五、修改主题</h1><p>clone 一个主题：<a href="https://github.com/littlen/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/littlen/hexo-theme-yilia</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git <span class="built_in">clone</span> http://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+
+<p>切换为 yilia 主题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ vim _config.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 theme： landscape 注释掉</span></span><br><span class="line"><span class="comment"># 增加下面的内容</span></span><br><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
+
+<p>执行 4.8， 4.9， 4.10，再次打开 https://${你的GitHub 名}.github.io </p>
+<p>![1570904777549](window安装使用Hexo, 并搭建个人博客/1570904777549.png)</p>
 
       
 
@@ -256,7 +305,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">软件安装, hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -312,7 +361,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://kinomin.github.io/2019/10/16/windows 下安装Ruby/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://kinomin.github.io/2019/10/16/window安装使用 Hexo, 并搭建个人博客/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -326,18 +375,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/16/windows安装nodejs/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/16/windows下安装Ruby/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          windows安装nodejs
+          windows下安装Ruby
         
       </div>
     </a>
   
   
-    <a href="/2019/10/16/window 安装使用 Hexo, 并搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">window 安装使用 Hexo, 并搭建个人博客</div>
+    <a href="/2019/10/16/mysql开启binlog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql 开启binlog</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -364,7 +413,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Install-Ruby"><span class="toc-number">1.</span> <span class="toc-text">一、Install Ruby</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-下载"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-配置环境变量"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 配置环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-测试是否安装成功"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 测试是否安装成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Install-Jekyll"><span class="toc-number">1.4.</span> <span class="toc-text">二、Install Jekyll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-安装"><span class="toc-number">1.5.</span> <span class="toc-text">2.1 安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Install-Python"><span class="toc-number">2.</span> <span class="toc-text">三、Install Python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-下载地址"><span class="toc-number">2.1.</span> <span class="toc-text">3.1 下载地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-配置环境变量"><span class="toc-number">2.2.</span> <span class="toc-text">3.2 配置环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-测试是否安装成功"><span class="toc-number">2.3.</span> <span class="toc-text">3.3 测试是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Install-pip"><span class="toc-number">3.</span> <span class="toc-text">四、Install pip</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-下载地址"><span class="toc-number">3.1.</span> <span class="toc-text">4.1 下载地址</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、-Run-Jekyll"><span class="toc-number">4.</span> <span class="toc-text">五、 Run Jekyll</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、模板"><span class="toc-number">5.</span> <span class="toc-text">六、模板</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#说明"><span class="toc-number">1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、安装-nodejs"><span class="toc-number">2.</span> <span class="toc-text">一、安装 nodejs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、打开终端"><span class="toc-number">3.</span> <span class="toc-text">二、打开终端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、查看-node-和-npm-的版本"><span class="toc-number">4.</span> <span class="toc-text">三、查看 node 和 npm 的版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、安装-Hexo-博客框架"><span class="toc-number">5.</span> <span class="toc-text">四、安装 Hexo 博客框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-安装-cnpm"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 安装 cnpm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-使用-cnpm-安装-Hexo"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 使用 cnpm 安装 Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-创建一个文件夹"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 创建一个文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-使用-Hexo-生成博客"><span class="toc-number">5.4.</span> <span class="toc-text">4.4 使用 Hexo 生成博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-启动-Hexo"><span class="toc-number">5.5.</span> <span class="toc-text">4.5 启动 Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-创建文章"><span class="toc-number">5.6.</span> <span class="toc-text">4.6 创建文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-修改刚刚创建的文章"><span class="toc-number">5.7.</span> <span class="toc-text">4.7 修改刚刚创建的文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-清理-Hexo"><span class="toc-number">5.8.</span> <span class="toc-text">4.8 清理 Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-9-重新生成"><span class="toc-number">5.9.</span> <span class="toc-text">4.9 重新生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-10-重新启动"><span class="toc-number">5.10.</span> <span class="toc-text">4.10 重新启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、将博客部署到-GitHub-上"><span class="toc-number">5.11.</span> <span class="toc-text">五、将博客部署到 GitHub 上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-创建仓库"><span class="toc-number">5.12.</span> <span class="toc-text">5.1 创建仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-安装-git-部署插件"><span class="toc-number">5.13.</span> <span class="toc-text">5.2 安装 git 部署插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-设置-config-yml"><span class="toc-number">5.14.</span> <span class="toc-text">5.3 设置  _config.yml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-部署到github"><span class="toc-number">5.15.</span> <span class="toc-text">5.4 部署到github</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、修改主题"><span class="toc-number">6.</span> <span class="toc-text">五、修改主题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -378,7 +427,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="windows 下安装Ruby" data-title="windows 下安装Ruby" data-url="http://kinomin.github.io/2019/10/16/windows 下安装Ruby/"></div>
+	<div class="ds-thread" data-thread-key="window安装使用 Hexo, 并搭建个人博客" data-title="window安装使用Hexo, 并搭建个人博客" data-url="http://kinomin.github.io/2019/10/16/window安装使用 Hexo, 并搭建个人博客/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -401,8 +450,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://kinomin.github.io/2019/10/16/windows 下安装Ruby/", 
-    sourceId: "windows 下安装Ruby",
+    url: "http://kinomin.github.io/2019/10/16/window安装使用 Hexo, 并搭建个人博客/", 
+    sourceId: "window安装使用 Hexo, 并搭建个人博客",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -531,15 +580,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">软件安装, hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
