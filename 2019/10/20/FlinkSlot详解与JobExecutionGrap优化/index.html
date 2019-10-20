@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://kinomin.github.io/2019/10/20/FlinkSlot详解与JobExecutionGrap优化/1571541197203.png">
 <meta property="og:image" content="http://kinomin.github.io/2019/10/20/FlinkSlot详解与JobExecutionGrap优化/2012568276-5d49313cc502d_articlex.jpg">
 <meta property="og:image" content="http://kinomin.github.io/2019/10/20/FlinkSlot详解与JobExecutionGrap优化/342249512-5d493166bf72b_articlex.png">
-<meta property="og:updated_time" content="2019-10-20T03:23:24.695Z">
+<meta property="og:updated_time" content="2019-10-20T03:26:29.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flink Slot详解与 Job Execution Grap 优化">
 <meta name="twitter:description" content="Flink SlotFlink 集群是由 JobManager（JM）、TaskManager（TM）、ResourceManager（RM）、dispacher四大组件组成的，每个 JM/TM 都是运行在一个独立的 JVM 进程中。JM相当于 Master，是集群的管理节点，TM相当于 Worker，是集群的工作节点，每个 TM 最少持有 1 个 Slot，Slot 是 Flink 执行 Job">
@@ -246,7 +246,7 @@
 <p>所出现异常如图八：</p>
 <p><img src="//kinomin.github.io/2019/10/20/FlinkSlot详解与JobExecutionGrap优化/342249512-5d493166bf72b_articlex.png" alt="img"></p>
 <hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Operator Chain是将多个Operator链接在一起放置在一个Task中，只针对Operator；Slot Sharing是在一个Slot中执行多个Task，针对的是Operator Chain之后的Task。这两种优化都充分利用了计算资源，减少了不必要的开销，提升了Job的运行性能。此外，Operator Chain的源码在streaming包下，只在流处理任务中有这个机制；Slot Sharing在flink-runtime包下，似乎应用更广泛一些（具体还有待考究）。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Operator Chain是将多个Operator链接在一起放置在一个Task中，只针对Operator；Slot Sharing是在一个Slot中执行多个Task，针对的是Operator Chain之后的Task。这两种优化都充分利用了计算资源，减少了不必要的开销，提升了Job的运行性能。此外，Operator Chain的源码在streaming包下，只在流处理任务中有这个机制；Slot Sharing在flink-runtime包下，似乎应用更广泛一些（具体还有待考究）。</p>
 <p>最后，只有充分的了解Slot、Operator Chain、Slot Sharing是什么，以及各自的作用和相互间的关系，才能编写出优秀的代码并高效的运行在集群上。</p>
 
       
@@ -391,7 +391,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Flink-Slot"><span class="toc-number">1.</span> <span class="toc-text">Flink Slot</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Operator-Chains（任务链）"><span class="toc-number">2.</span> <span class="toc-text">Operator Chains（任务链）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Slot-Sharing（Slot-共享）"><span class="toc-number">3.</span> <span class="toc-text">Slot Sharing（Slot 共享）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Operator-Chain-amp-Slot-Sharing-API"><span class="toc-number">4.</span> <span class="toc-text">Operator Chain &amp; Slot Sharing API</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#迁移OnYarn后Job性能下降的问题"><span class="toc-number">5.</span> <span class="toc-text">迁移OnYarn后Job性能下降的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.1.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Flink-Slot"><span class="toc-number">1.</span> <span class="toc-text">Flink Slot</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Operator-Chains（任务链）"><span class="toc-number">2.</span> <span class="toc-text">Operator Chains（任务链）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Slot-Sharing（Slot-共享）"><span class="toc-number">3.</span> <span class="toc-text">Slot Sharing（Slot 共享）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Operator-Chain-amp-Slot-Sharing-API"><span class="toc-number">4.</span> <span class="toc-text">Operator Chain &amp; Slot Sharing API</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#迁移OnYarn后Job性能下降的问题"><span class="toc-number">5.</span> <span class="toc-text">迁移OnYarn后Job性能下降的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
